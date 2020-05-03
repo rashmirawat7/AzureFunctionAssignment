@@ -1,0 +1,16 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- dev
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+  - task: ArchiveFiles@2
+    displayName: 'Archive FunctionApp'
+  - task: PublishPipelineArtifact@0
+
