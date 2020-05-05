@@ -6,6 +6,8 @@ pool:
 
 steps:
   - task: ArchiveFiles@2
-    displayName: 'Archive FunctionApp'
+    displayName: 'Archive Function'
+
   - task: PublishPipelineArtifact@0
+    displayName: 'Publish Artifact: drop'
 
