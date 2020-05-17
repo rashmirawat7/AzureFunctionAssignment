@@ -16,7 +16,7 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'AzureFunctionOutput'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'drop'
     publishLocation: 'pipeline'
 
