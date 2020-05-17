@@ -5,7 +5,18 @@ pool:
   vmImage: 'windows-2019'
 
 steps:
-  - task: ArchiveFiles@2
-    displayName: 'Archive FunctionApp'
-  - task: PublishPipelineArtifact@0
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'AzureFunctionOutput'
+    publishLocation: 'pipeline'
 
